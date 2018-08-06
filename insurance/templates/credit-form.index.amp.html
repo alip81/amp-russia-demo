@@ -48,7 +48,7 @@ limitations under the License.
   <header class="amprussia-headerbar fixed flex justify-start items-center top-0 left-0 right-0 pl2 pr4 pt2 md-pt0">
     <div role="button" aria-label="open sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="amprussia-navbar-trigger  pr2 absolute top-0 pr0 mr2 mt2"><svg width="25px" height="30px" viewBox="0 0 25 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="menu-button"><rect id="Rectangle" stroke="#000000" x="0.5" y="0.5" width="24" height="29" rx="3"></rect><polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon><path d="M3,18 L22,18 L22,16 L3,16 L3,18 Z M3,13 L21,13 L21,11 L3,11 L3,13 Z M3,6 L3,8 L22,8 L22,6 L3,6 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path></g></g></svg>
     </div>
-      <a href="insurance.index.amp.html" class="text-decoration-none inline-block amprussia-headerbar-home-link mb1 md-mb0 logo-main">
+      <a href="index.amp.html" class="text-decoration-none inline-block amprussia-headerbar-home-link mb1 md-mb0 logo-main">
         <amp-img src="../img/insurance/insurance-logo.png" width="119" height="28" layout="fixed" class="my0 mx-auto " alt=""></amp-img>
       </a>
     <!--
@@ -66,15 +66,6 @@ limitations under the License.
        }]
      }
      -->
-    <div class="amprussia-headerbar-fixed center m0 p0 flex justify-center nowrap absolute top-0 right-0 pt1 pr3">
-      <div class="mr2">
-      </div>
-        <a href="#" class="text-decoration-none mr2 amprussia-headerbar-fixed-link ">
-          
-          <div class="product-button">Войти</div>
-        </a>
-
-    </div>
   </header>
 
 <!-- Start Sidebar -->
@@ -85,16 +76,16 @@ limitations under the License.
   <nav class="amprussia-sidebar-nav amprussia-nav">
     <ul class="list-reset m0 p0 amprussia-label">
         <li>
-          <a href="insurance.index.amp.html" class="text-decoration-none block 22">
+          <a href="index.amp.html" class="text-decoration-none block 22">
           <amp-img src="../img/insurance/insurance-logo.png" width="225" height="55" layout="responsive" class="amprussia-sidebar-nav-image inline-block mb4" alt="Company logo" noloading="">
             <div placeholder="" class="insurance-loader"></div>
           </amp-img>
           </a>
         </li>
-          <li class="amprussia-nav-item "><a class="amprussia-nav-link" href="insurance-form.index.amp.html">Кредитные карты</a></li>
-          <li class="amprussia-nav-item "><a class="amprussia-nav-link" href="insurance-form.index.amp.html">Дебетовые карты</a></li>
-          <li class="amprussia-nav-item "><a class="amprussia-nav-link" href="insurance-form.index.amp.html">Страхование</a></li>
-          <li class="amprussia-nav-item "><a class="amprussia-nav-link" href="insurance-form.index.amp.html">Наш блог</a></li>
+          <li class="amprussia-nav-item "><a class="amprussia-nav-link" href="credit-form.index.amp.html">Кредитные карты</a></li>
+          <li class="amprussia-nav-item "><a class="amprussia-nav-link" href="debit-form.index.amp.html">Дебетовые карты</a></li>
+          <li class="amprussia-nav-item "><a class="amprussia-nav-link" href="mortgage-form.index.html">Ипотека</a></li>
+          <li class="amprussia-nav-item "><a class="amprussia-nav-link" href="#">Наш блог</a></li>
           <li class="amprussia-nav-item "><a class="amprussia-nav-link" href="#">Связаться с нами</a></li>
     </ul>
   </nav>
@@ -104,16 +95,36 @@ limitations under the License.
   <!-- End Navbar -->
 
 <main id="content" role="main" class="main pb2">
+<section class="insurance-hero-content-wrapper center overflow-hidden">
+  <amp-img class="insurance-hero-image md-hide sm-hide" src="../img/insurance/hero-1.jpg" width="640" height="362" layout="responsive" media="(max-width: 52.06rem)" alt="Hero Landing 1" noloading="">
+    <div placeholder="" class="insurance-loader"></div>
+  </amp-img>
+  <amp-img class="insurance-hero-image md-hide sm-hide" src="../img/insurance/hero-1-wide.jpg" width="1920" height="520" layout="responsive" media="(min-width: 52.07rem)" alt="Hero Landing 1" noloading="">
+    <div placeholder="" class="insurance-loader"></div>
+  </amp-img>
+  <div class="insurance-overlay insurance-hero-content insurance-hero-content-theme-primary flex justify-center flex-column md-mx-auto md-p0">
+    <div class="insurance-hero-align pt2 md-mx-auto">
+      <h2 class="insurance-hero-content-title h4 md-h1 caps md-mb2 md-pl4">Кредитные карты</h2>
+      <p class="insurance-hero-content-body insurance-subtitle">Кредит до 100 тысяч ₽. Без процентов до 30 дней.</p>
+    </div>
+  </div>
+
+</section>
+
 <section class="main-centered md-col-6 px2 pt2 pb5 md-px4 md-pt4 md-pb7">
   <div class="flex flex-column">
     <h1 class="h3 mb2">Заявка на карту</h1>
     <h6 class="mb2">Всего три шага и карта ваша!</h6>
     <hr class="xs-hide sm-hide mt3 mb3">
 
-    <form method="post"
-    	  action-xhr="https://amprussia.com/insurance/sendmail.php"
-    	  target="_blank">
+  <form method="post"
+        id="form"
+        action-xhr="http://localhost:3000/process-form.php"
+    	  target="_blank"
+        custom-validation-reporting="show-all-on-submit"
+        on="submit-success: form-area.hide">
 
+   <div id="form-area" class="m0 p0">
    	<!-- Start Input -->
    	<div class="amprussia-input inline-block relative m0 p0 mb3 show" [class]="visibility||'show'">
    		<label for="country" class="absolute top-0 right-0 bottom-0 left-0" aria-hidden="true">Страна</label>
@@ -128,12 +139,12 @@ limitations under the License.
 
 	<!-- Start Input -->
 	<div class="amprussia-input inline-block relative m0 p0 mb3 show">
-	  <input type="text" value="" name="name" id="name" class="block border-none p0 m0" placeholder="Фамилия" required>
-	  <label for="name" class="absolute top-0 right-0 bottom-0 left-0" aria-hidden="true">Фамилия</label>
+	  <input type="text" value="" name="surname" id="surname" class="block border-none p0 m0" placeholder="Фамилия" required>
+	  <label for="surname" class="absolute top-0 right-0 bottom-0 left-0" aria-hidden="true">Фамилия</label>
 	  <span visible-when-invalid="valueMissing"
-	        validation-for="phone">Это обязательное поле.</span>
+	        validation-for="surname">Это обязательное поле.</span>
 	  <span visible-when-invalid="typeMismatch"
-	        validation-for="phone">Некорректный набор символов.</span>
+	        validation-for="surname">Некорректный набор символов.</span>
 	  <p class="sublabel">Укажите точно, как в паспорте.</p>
 	</div>
 	<!-- End Input-->
@@ -146,12 +157,12 @@ limitations under the License.
 
 	<!-- Start Input -->
 	<div class="amprussia-input inline-block relative m0 p0 mb3 show">
-	  <input type="text" class="show" value="" name="surname" id="surname" class="block border-none p0 m0" placeholder="Имя" required>
-	  <label for="surname" class="absolute top-0 right-0 bottom-0 left-0" aria-hidden="true">Имя</label>
+	  <input type="text" value="" name="name" id="name" class="block border-none p0 m0" placeholder="Имя" required>
+	  <label for="name" class="absolute top-0 right-0 bottom-0 left-0" aria-hidden="true">Имя</label>
 	  <span visible-when-invalid="valueMissing"
-	        validation-for="phone">Это обязательное поле.</span>
+	        validation-for="name">Это обязательное поле.</span>
 	  <span visible-when-invalid="typeMismatch"
-	        validation-for="phone">Некорректный набор символов.</span>
+	        validation-for="name">Некорректный набор символов.</span>
 	  <p class="sublabel">Укажите точно, как в паспорте.</p>
 	</div>
 	<!-- End Input-->
@@ -161,9 +172,9 @@ limitations under the License.
 	  <input type="text" value="" name="middle" id="middle" class="block border-none p0 m0" placeholder="Отчество" required>
 	  <label for="middle" class="absolute top-0 right-0 bottom-0 left-0" aria-hidden="true">Отчество</label>
 	  <span visible-when-invalid="valueMissing"
-	        validation-for="phone">Это обязательное поле.</span>
+	        validation-for="middle">Это обязательное поле.</span>
 	  <span visible-when-invalid="typeMismatch"
-	        validation-for="phone">Некорректный набор символов.</span>
+	        validation-for="middle">Некорректный набор символов.</span>
 	  <p class="sublabel">Укажите точно, как в паспорте. Если отчество отсутствует, поставьте прочерк.</p>
 	</div>
 	<!-- End Input-->
@@ -182,7 +193,7 @@ limitations under the License.
 
 	<!-- Start Input -->
 	<div class="amprussia-input inline-block relative m0 p0 mb3 show">
-	  <input type="email" value="" name="email" id="email" class="block border-none p0 m0" placeholder="Электронная почта">
+	  <input type="email" value="" name="email" id="email" class="block border-none p0 m0" placeholder="Электронная почта" required>
 	  <label for="email" class="absolute top-0 right-0 bottom-0 left-0" aria-hidden="true">Электронная почта</label>
 	  <p class="sublabel">Укажите адрес Вашей электронной почты. Пример: vashapochta@example.ru. Указывайте существующий email, так как на него будет направлена важная информация по заявке.</p>
 	</div>
@@ -190,21 +201,27 @@ limitations under the License.
 	<!-- End Input-->
 
   <input type="submit" value="Следующий шаг" class="amprussia-btn amprussia-btn-secondary form-button caps">
-    <div submit-success>
-      <template type="amp-mustache">
-        Спасибо! Форма успешно отправлена.
-      </template>
-    </div>
     <div submit-error>
       <template type="amp-mustache">
-        Что-то пошло не так, попробуйте снова.
+        Что-то пошло не так: {{error}}
       </template>
     </div>
   </input>
   <p class="mt2 mb2 sublabel">Нажимая кнопку «Следующий шаг», я подтверждаю, что ознакомлен и согласен с условиями направления заявления.</p>
+  <p class="mt2 mb2 sublabel">Форма будет обработана без редиректа.</p>
+  </div>
+  <div submit-success>
+    <template type="amp-mustache">
+      Спасибо! Форма успешно отправлена. Ожидайте получения письма на {{email}}
+    </template>
+  </div>
 	</form>
-    </section>
-  </main>
+  </div>
+</section>
+
+
+
+</main>
 <footer class="insurance-footer center">
   <nav class="mx-auto md-mb0 md-pt5 md-pb5">
     <ul class="list-reset flex flex-wrap my0 md-pl4 md-pr4 md-mxn4">
@@ -239,10 +256,9 @@ limitations under the License.
 
 
       </li>
-      
+
     </ul>
   </nav>
 </footer>
 </body>
 </html>
-
