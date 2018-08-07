@@ -18,8 +18,9 @@ limitations under the License.
 
 <head>
   <meta charset="utf-8">
+  <meta name="amp-google-client-id-api" content="googleanalytics">
   <title>ПочтиБанк | Оформление карты</title>
-  <link rel="canonical" href="https://www.amprussia.com/templates/insurance/insurance-form.index.amp">
+  <link rel="canonical" href="https://www.amprussia.com/templates/insurance/credit-form.index.amp.html">
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
   <script async="" src="https://cdn.ampproject.org/v0.js"></script>
@@ -33,7 +34,7 @@ limitations under the License.
 <script custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async=""></script>
 <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
 <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
 
@@ -43,7 +44,29 @@ limitations under the License.
     border: 1px solid transparent;border-radius:6px;outline:0;-webkit-tap-highlight-color:transparent;transition:background-color .3s ease,border .3s ease,color .3s ease;will-change:background-color,border,color;letter-spacing:inherit;text-align:center;text-transform:inherit;}.product-box-padded{padding: 15px 0px;}.product-button:hover{background-color:#ffdd2d;transition: background-color .3s ease,color .3s ease}.logo-main{margin-left:40px}.insurance-subtitle{font-size:2rem}.product-hero-display-wrapper{background-color:#d9d9de}.form-button{background-color:#20bd18;border-radius:30px;color:#fff;border:none}.sublabel{color:#aaa;font-size:0.9rem}</style>
 </head>
 <body>
-
+  <amp-analytics type="googleanalytics">
+  <script type="application/json">
+  {
+    "vars": {
+      "account": "UA-123148546-2"
+    },
+    "triggers": {
+      "trackPageview": {
+        "on": "visible",
+        "request": "pageview"
+      },
+      "formSubmitSuccess": {
+        "on": "amp-form-submit-success",
+        "request": "event",
+        "vars": {
+          "eventCategory": "form-submit",
+          "eventAction": "${formId}-submit"
+        }
+      }
+    }
+  }
+  </script>
+  </amp-analytics>
   <!-- Start Navbar -->
   <header class="amprussia-headerbar fixed flex justify-start items-center top-0 left-0 right-0 pl2 pr4 pt2 md-pt0">
     <div role="button" aria-label="open sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="amprussia-navbar-trigger  pr2 absolute top-0 pr0 mr2 mt2"><svg width="25px" height="30px" viewBox="0 0 25 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="menu-button"><rect id="Rectangle" stroke="#000000" x="0.5" y="0.5" width="24" height="29" rx="3"></rect><polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon><path d="M3,18 L22,18 L22,16 L3,16 L3,18 Z M3,13 L21,13 L21,11 L3,11 L3,13 Z M3,6 L3,8 L22,8 L22,6 L3,6 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path></g></g></svg>
@@ -118,7 +141,7 @@ limitations under the License.
     <hr class="xs-hide sm-hide mt3 mb3">
 
   <form method="post"
-        id="form"
+        id="credit-form"
         action-xhr="http://localhost:3000/process-form.php"
     	  target="_blank"
         custom-validation-reporting="show-all-on-submit"
